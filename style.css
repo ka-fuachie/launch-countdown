@@ -130,7 +130,8 @@ footer .socials{
     gap: 2em;
 }
 
-footer a:hover .socials-logo{
+footer a:hover .socials-logo,
+footer a:focus .socials-logo{
     fill: hsl(var(--clr-soft-red));
 }
 

@@ -1,4 +1,4 @@
-const dateBox = document.querySelectorAll('span.number > .top-half')
+const dateBox = document.querySelectorAll('span.number > .front')
 
 const launchDate = new Date(2021, 11, 17, 4, 30, 45, 0)
 
