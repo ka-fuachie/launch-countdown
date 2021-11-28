@@ -96,12 +96,64 @@ h1 {
 
 .countdown  .number{
     font-size: clamp(2.5rem, calc(1.5rem + 5vw), 4.5rem);
-    margin-block: 0.25em;
+    margin-block: 0.3em;
     border-radius: 0.1em;
-    /* border-bottom: 0.1em solid hsl(var(--clr-black-blue)); */
     background-color: hsl(var(--clr-dark-des-blue));
+    /* background: linear-gradient(180deg, hsl(var(--clr-dark-des-blue)) 0%, hsl(var(--clr-dark-des-blue)) 48.5%, hsl(var(--clr-dark-des-blue) / 0.5) 50%, hsl(var(--clr-dark-des-blue)) 51.5%, hsl(var(--clr-dark-des-blue)) 100%); */
     color: hsl(var(--clr-soft-red));
     padding: 0.3em;
+    position: relative;
+}
+
+.countdown .number::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.1em;
+    mix-blend-mode: multiply;
+    background: 
+        linear-gradient(180deg, 
+            hsl(0 0% 50% / 0.25) 0%, 
+            hsl(0 0% 50% / 0.25) 49%, 
+            hsl(var(--clr-dark-des-blue) / 0.45) 50.5%, 
+            hsl(var(--clr-white)) 51% , 
+            hsl(var(--clr-white)) 51.5%, 
+            hsl(var(--clr-dark-des-blue) / 0.1) 52%, 
+            hsl(var(--clr-white)) 53% , 
+            hsl(var(--clr-white)) 100%);
+}
+
+.countdown .number::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: translateY(0.175em);
+    border-radius: 0.1em;
+    background-color: hsl(var(--clr-black-blue));
+}
+
+.countdown .number .front::before,
+.countdown .number .front::after{
+    content: '';
+    position: absolute;
+    width: 0.15em;
+    aspect-ratio: 1;
+    top: 50%;
+    border-radius: 50%;
+    background-color: hsl(var(--clr-black-blue));
+}
+
+.countdown .number .front::before{
+    left: 0;
+    transform: translateY(-50%) translateX(-50%);
+    clip-path: inset(0% 0% 0% 45%);
+}
+
+.countdown .number .front::after{
+    right: 0;
+    transform: translateY(-50%) translateX(50%);
+    clip-path: inset(0% 45% 0% 0%);
 }
 
 .countdown .subtext {

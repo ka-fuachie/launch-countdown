@@ -12,12 +12,17 @@ const getDateFromMilliseconds = milli => {
     return [days, hours, minutes, seconds]
 }
 
+const arraysEqual = (a, b) => {
+    return JSON.stringify(a) == JSON.stringify(b)
+}
+
 const updateDOM = (date) => {
     dateBox.forEach((box, index) => {
         box.innerText = date[index]
     })    
 }
 
+let prevDateDiff
 const updateLoop = () => {
     const currentDate = new Date()
     const timeLeft = launchDate.getTime() -currentDate.getTime()
@@ -26,7 +31,8 @@ const updateLoop = () => {
         return value.toString()
     })  
     
-    updateDOM(dateDiff)
+    !arraysEqual(prevDateDiff, dateDiff) && updateDOM(dateDiff)
+    prevDateDiff = dateDiff
     requestAnimationFrame(updateLoop)
 
 }
