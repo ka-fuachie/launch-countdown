@@ -105,10 +105,8 @@ const calcDateDiff = () => {
 let prevDateDiff = ['00', '00', '00', '00']
 const init = () => {
     const dateDiff = calcDateDiff()
-    console.log(dateDiff);
     groupedDateBox.forEach((box, boxIndex) => {
         box.forEach((value) => {
-            console.log(value);
             value.innerText = dateDiff[boxIndex]
         })
     })
