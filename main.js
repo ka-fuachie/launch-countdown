@@ -1,6 +1,6 @@
 const dateBox = Array.from(document.querySelectorAll('span.number > span'))
 
-const launchDate = new Date(2022, 0, 17, 4, 30, 45, 0)
+const launchDate = new Date('December 2, 2022')
 
 
 const getDateFromMilliseconds = milli => {
